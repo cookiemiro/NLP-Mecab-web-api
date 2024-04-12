@@ -1,0 +1,1817 @@
+{
+	"results" : [ {
+		"alternatives" : [ {
+			"confidence" : 0.0,
+			"transcript" : "휴양지 등으로 장거리 운행이 증가하는 여름 휴가철 교통사고 건수도 늘어납니다. 여럿이 함께 떠나는 여행이다 보니 사고가 나면 피해자 수도 많아지고 또 어린이와 청소년 자녀를 동반한 차량이 많다 보니 10살 미만의 피해자는 평소보다 30% 이상 10대는 24%나 급증한 것으로 나타났습니다. 사고 운전자 역시 나이별로 보면 운전 경험이 적은 10대 운전자의 사고가 평상시 대비 24%나 증가했습니다. 휴양지가 있는비수도권 지역은 차량이 늘면서 교통사고 건수도 증가하지만 사람들이 떠나고 빈 서울 등 수도권은 그 반대입니다. 출근 시간대 발생하는 사고는 줄지만 대신 오전 9시에서 오후 5시 사이 평소보다 최대 15퍼센트나 더 많은 사고가 발생합니다. 휴가철에는 타이어 교체와 긴급 견인 서비스 이용도 늘어납니다. 기록적인 폭염이 이어지는 이번 여름에는 고속도로 표면 온도가 올라가면서 장거리 운행 중 타이어에 문제가 생길 확률이 더 높아 지기 때문에 휴가 떠나기 전 꼼꼼히 챙겨 봐야 합니다. 또 가족과 함께 하는 안전한 여행을 위해 뒷자리 앉은 어린 자녀도 반드시 안전벨트를 매도록 해야 합니다. ",
+			"words" : [
+			{
+				"endTime" : 
+				{
+					"nanos" : 960000000,
+					"seconds" : "0"
+				},
+				"startTime" : 
+				{
+					"nanos" : 570000000,
+					"seconds" : "0"
+				},
+				"word" : "휴양지 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 260000000,
+					"seconds" : "1"
+				},
+				"startTime" : 
+				{
+					"nanos" : 960000000,
+					"seconds" : "0"
+				},
+				"word" : "등으로 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 740000000,
+					"seconds" : "1"
+				},
+				"startTime" : 
+				{
+					"nanos" : 260000000,
+					"seconds" : "1"
+				},
+				"word" : "장거리 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 40000000,
+					"seconds" : "2"
+				},
+				"startTime" : 
+				{
+					"nanos" : 740000000,
+					"seconds" : "1"
+				},
+				"word" : "운행이 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 520000000,
+					"seconds" : "2"
+				},
+				"startTime" : 
+				{
+					"nanos" : 40000000,
+					"seconds" : "2"
+				},
+				"word" : "증가하는 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 790000000,
+					"seconds" : "2"
+				},
+				"startTime" : 
+				{
+					"nanos" : 520000000,
+					"seconds" : "2"
+				},
+				"word" : "여름 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 359999999,
+					"seconds" : "3"
+				},
+				"startTime" : 
+				{
+					"nanos" : 790000000,
+					"seconds" : "2"
+				},
+				"word" : "휴가철 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 410000000,
+					"seconds" : "4"
+				},
+				"startTime" : 
+				{
+					"nanos" : 779999999,
+					"seconds" : "3"
+				},
+				"word" : "교통사고 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 770000000,
+					"seconds" : "4"
+				},
+				"startTime" : 
+				{
+					"nanos" : 410000000,
+					"seconds" : "4"
+				},
+				"word" : "건수도 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 489999999,
+					"seconds" : "5"
+				},
+				"startTime" : 
+				{
+					"nanos" : 769999999,
+					"seconds" : "4"
+				},
+				"word" : "늘어납니다. "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 389999999,
+					"seconds" : "6"
+				},
+				"startTime" : 
+				{
+					"nanos" : 0,
+					"seconds" : "6"
+				},
+				"word" : "여럿이 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 660000000,
+					"seconds" : "6"
+				},
+				"startTime" : 
+				{
+					"nanos" : 389999999,
+					"seconds" : "6"
+				},
+				"word" : "함께 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 49999999,
+					"seconds" : "7"
+				},
+				"startTime" : 
+				{
+					"nanos" : 660000000,
+					"seconds" : "6"
+				},
+				"word" : "떠나는 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 529999999,
+					"seconds" : "7"
+				},
+				"startTime" : 
+				{
+					"nanos" : 49999999,
+					"seconds" : "7"
+				},
+				"word" : "여행이다 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 950000000,
+					"seconds" : "7"
+				},
+				"startTime" : 
+				{
+					"nanos" : 530000000,
+					"seconds" : "7"
+				},
+				"word" : "보니 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 490000000,
+					"seconds" : "8"
+				},
+				"startTime" : 
+				{
+					"nanos" : 980000000,
+					"seconds" : "7"
+				},
+				"word" : "사고가 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 820000000,
+					"seconds" : "8"
+				},
+				"startTime" : 
+				{
+					"nanos" : 490000000,
+					"seconds" : "8"
+				},
+				"word" : "나면 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 179999999,
+					"seconds" : "9"
+				},
+				"startTime" : 
+				{
+					"nanos" : 820000000,
+					"seconds" : "8"
+				},
+				"word" : "피해자 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 359999999,
+					"seconds" : "9"
+				},
+				"startTime" : 
+				{
+					"nanos" : 179999999,
+					"seconds" : "9"
+				},
+				"word" : "수도 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 959999999,
+					"seconds" : "9"
+				},
+				"startTime" : 
+				{
+					"nanos" : 359999999,
+					"seconds" : "9"
+				},
+				"word" : "많아지고 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 439999999,
+					"seconds" : "10"
+				},
+				"startTime" : 
+				{
+					"nanos" : 289999999,
+					"seconds" : "10"
+				},
+				"word" : "또 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 919999999,
+					"seconds" : "10"
+				},
+				"startTime" : 
+				{
+					"nanos" : 439999999,
+					"seconds" : "10"
+				},
+				"word" : "어린이와 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 369999999,
+					"seconds" : "11"
+				},
+				"startTime" : 
+				{
+					"nanos" : 919999999,
+					"seconds" : "10"
+				},
+				"word" : "청소년 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 729999999,
+					"seconds" : "11"
+				},
+				"startTime" : 
+				{
+					"nanos" : 369999999,
+					"seconds" : "11"
+				},
+				"word" : "자녀를 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 179999999,
+					"seconds" : "12"
+				},
+				"startTime" : 
+				{
+					"nanos" : 730000000,
+					"seconds" : "11"
+				},
+				"word" : "동반한 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 539999999,
+					"seconds" : "12"
+				},
+				"startTime" : 
+				{
+					"nanos" : 179999999,
+					"seconds" : "12"
+				},
+				"word" : "차량이 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 839999999,
+					"seconds" : "12"
+				},
+				"startTime" : 
+				{
+					"nanos" : 539999999,
+					"seconds" : "12"
+				},
+				"word" : "많다 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 230000000,
+					"seconds" : "13"
+				},
+				"startTime" : 
+				{
+					"nanos" : 839999999,
+					"seconds" : "12"
+				},
+				"word" : "보니 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 949999999,
+					"seconds" : "13"
+				},
+				"startTime" : 
+				{
+					"nanos" : 500000000,
+					"seconds" : "13"
+				},
+				"word" : "10살 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 309999999,
+					"seconds" : "14"
+				},
+				"startTime" : 
+				{
+					"nanos" : 949999999,
+					"seconds" : "13"
+				},
+				"word" : "미만의 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 820000000,
+					"seconds" : "14"
+				},
+				"startTime" : 
+				{
+					"nanos" : 310000000,
+					"seconds" : "14"
+				},
+				"word" : "피해자는 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 390000000,
+					"seconds" : "15"
+				},
+				"startTime" : 
+				{
+					"nanos" : 820000000,
+					"seconds" : "14"
+				},
+				"word" : "평소보다 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 140000000,
+					"seconds" : "16"
+				},
+				"startTime" : 
+				{
+					"nanos" : 390000000,
+					"seconds" : "15"
+				},
+				"word" : "30% "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 469999999,
+					"seconds" : "16"
+				},
+				"startTime" : 
+				{
+					"nanos" : 140000000,
+					"seconds" : "16"
+				},
+				"word" : "이상 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 339999999,
+					"seconds" : "17"
+				},
+				"startTime" : 
+				{
+					"nanos" : 769999999,
+					"seconds" : "16"
+				},
+				"word" : "10대는 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 420000000,
+					"seconds" : "18"
+				},
+				"startTime" : 
+				{
+					"nanos" : 339999999,
+					"seconds" : "17"
+				},
+				"word" : "24%나 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 900000000,
+					"seconds" : "18"
+				},
+				"startTime" : 
+				{
+					"nanos" : 420000000,
+					"seconds" : "18"
+				},
+				"word" : "급증한 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 259999999,
+					"seconds" : "19"
+				},
+				"startTime" : 
+				{
+					"nanos" : 899999999,
+					"seconds" : "18"
+				},
+				"word" : "것으로 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 10000000,
+					"seconds" : "20"
+				},
+				"startTime" : 
+				{
+					"nanos" : 260000000,
+					"seconds" : "19"
+				},
+				"word" : "나타났습니다. "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 59999999,
+					"seconds" : "21"
+				},
+				"startTime" : 
+				{
+					"nanos" : 699999999,
+					"seconds" : "20"
+				},
+				"word" : "사고 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 449999999,
+					"seconds" : "21"
+				},
+				"startTime" : 
+				{
+					"nanos" : 59999999,
+					"seconds" : "21"
+				},
+				"word" : "운전자 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 779999999,
+					"seconds" : "21"
+				},
+				"startTime" : 
+				{
+					"nanos" : 449999999,
+					"seconds" : "21"
+				},
+				"word" : "역시 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 290000000,
+					"seconds" : "22"
+				},
+				"startTime" : 
+				{
+					"nanos" : 780000000,
+					"seconds" : "21"
+				},
+				"word" : "나이별로 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 679999999,
+					"seconds" : "22"
+				},
+				"startTime" : 
+				{
+					"nanos" : 289999999,
+					"seconds" : "22"
+				},
+				"word" : "보면 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 129999999,
+					"seconds" : "23"
+				},
+				"startTime" : 
+				{
+					"nanos" : 739999999,
+					"seconds" : "22"
+				},
+				"word" : "운전 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 489999999,
+					"seconds" : "23"
+				},
+				"startTime" : 
+				{
+					"nanos" : 129999999,
+					"seconds" : "23"
+				},
+				"word" : "경험이 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 910000000,
+					"seconds" : "23"
+				},
+				"startTime" : 
+				{
+					"nanos" : 489999999,
+					"seconds" : "23"
+				},
+				"word" : "적은 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 359999999,
+					"seconds" : "24"
+				},
+				"startTime" : 
+				{
+					"nanos" : 910000000,
+					"seconds" : "23"
+				},
+				"word" : "10대 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 839999999,
+					"seconds" : "24"
+				},
+				"startTime" : 
+				{
+					"nanos" : 359999999,
+					"seconds" : "24"
+				},
+				"word" : "운전자의 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 410000000,
+					"seconds" : "25"
+				},
+				"startTime" : 
+				{
+					"nanos" : 839999999,
+					"seconds" : "24"
+				},
+				"word" : "사고가 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 189999999,
+					"seconds" : "26"
+				},
+				"startTime" : 
+				{
+					"nanos" : 649999999,
+					"seconds" : "25"
+				},
+				"word" : "평상시 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 519999999,
+					"seconds" : "26"
+				},
+				"startTime" : 
+				{
+					"nanos" : 190000000,
+					"seconds" : "26"
+				},
+				"word" : "대비 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 629999999,
+					"seconds" : "27"
+				},
+				"startTime" : 
+				{
+					"nanos" : 519999999,
+					"seconds" : "26"
+				},
+				"word" : "24%나 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 469999999,
+					"seconds" : "28"
+				},
+				"startTime" : 
+				{
+					"nanos" : 629999999,
+					"seconds" : "27"
+				},
+				"word" : "증가했습니다. "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 700000000,
+					"seconds" : "29"
+				},
+				"startTime" : 
+				{
+					"nanos" : 190000000,
+					"seconds" : "29"
+				},
+				"word" : "휴양지가 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 509999999,
+					"seconds" : "30"
+				},
+				"startTime" : 
+				{
+					"nanos" : 699999999,
+					"seconds" : "29"
+				},
+				"word" : "있는비수도권 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 870000000,
+					"seconds" : "30"
+				},
+				"startTime" : 
+				{
+					"nanos" : 510000000,
+					"seconds" : "30"
+				},
+				"word" : "지역은 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 260000000,
+					"seconds" : "31"
+				},
+				"startTime" : 
+				{
+					"nanos" : 870000000,
+					"seconds" : "30"
+				},
+				"word" : "차량이 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 710000000,
+					"seconds" : "31"
+				},
+				"startTime" : 
+				{
+					"nanos" : 260000000,
+					"seconds" : "31"
+				},
+				"word" : "늘면서 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 340000000,
+					"seconds" : "32"
+				},
+				"startTime" : 
+				{
+					"nanos" : 710000000,
+					"seconds" : "31"
+				},
+				"word" : "교통사고 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 730000000,
+					"seconds" : "32"
+				},
+				"startTime" : 
+				{
+					"nanos" : 340000000,
+					"seconds" : "32"
+				},
+				"word" : "건수도 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 449999999,
+					"seconds" : "33"
+				},
+				"startTime" : 
+				{
+					"nanos" : 729999999,
+					"seconds" : "32"
+				},
+				"word" : "증가하지만 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 169999999,
+					"seconds" : "34"
+				},
+				"startTime" : 
+				{
+					"nanos" : 659999999,
+					"seconds" : "33"
+				},
+				"word" : "사람들이 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 560000000,
+					"seconds" : "34"
+				},
+				"startTime" : 
+				{
+					"nanos" : 170000000,
+					"seconds" : "34"
+				},
+				"word" : "떠나고 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 740000000,
+					"seconds" : "34"
+				},
+				"startTime" : 
+				{
+					"nanos" : 560000000,
+					"seconds" : "34"
+				},
+				"word" : "빈 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 100000000,
+					"seconds" : "35"
+				},
+				"startTime" : 
+				{
+					"nanos" : 740000000,
+					"seconds" : "34"
+				},
+				"word" : "서울 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 250000000,
+					"seconds" : "35"
+				},
+				"startTime" : 
+				{
+					"nanos" : 100000000,
+					"seconds" : "35"
+				},
+				"word" : "등 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 850000000,
+					"seconds" : "35"
+				},
+				"startTime" : 
+				{
+					"nanos" : 250000000,
+					"seconds" : "35"
+				},
+				"word" : "수도권은 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 30000000,
+					"seconds" : "36"
+				},
+				"startTime" : 
+				{
+					"nanos" : 850000000,
+					"seconds" : "35"
+				},
+				"word" : "그 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 750000000,
+					"seconds" : "36"
+				},
+				"startTime" : 
+				{
+					"nanos" : 30000000,
+					"seconds" : "36"
+				},
+				"word" : "반대입니다. "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 860000000,
+					"seconds" : "37"
+				},
+				"startTime" : 
+				{
+					"nanos" : 590000000,
+					"seconds" : "37"
+				},
+				"word" : "출근 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 219999999,
+					"seconds" : "38"
+				},
+				"startTime" : 
+				{
+					"nanos" : 859999999,
+					"seconds" : "37"
+				},
+				"word" : "시간대 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 729999999,
+					"seconds" : "38"
+				},
+				"startTime" : 
+				{
+					"nanos" : 219999999,
+					"seconds" : "38"
+				},
+				"word" : "발생하는 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 119999999,
+					"seconds" : "39"
+				},
+				"startTime" : 
+				{
+					"nanos" : 729999999,
+					"seconds" : "38"
+				},
+				"word" : "사고는 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 719999999,
+					"seconds" : "39"
+				},
+				"startTime" : 
+				{
+					"nanos" : 119999999,
+					"seconds" : "39"
+				},
+				"word" : "줄지만 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 229999999,
+					"seconds" : "40"
+				},
+				"startTime" : 
+				{
+					"nanos" : 929999999,
+					"seconds" : "39"
+				},
+				"word" : "대신 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 649999999,
+					"seconds" : "40"
+				},
+				"startTime" : 
+				{
+					"nanos" : 229999999,
+					"seconds" : "40"
+				},
+				"word" : "오전 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 369999999,
+					"seconds" : "41"
+				},
+				"startTime" : 
+				{
+					"nanos" : 649999999,
+					"seconds" : "40"
+				},
+				"word" : "9시에서 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 640000000,
+					"seconds" : "41"
+				},
+				"startTime" : 
+				{
+					"nanos" : 369999999,
+					"seconds" : "41"
+				},
+				"word" : "오후 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 119999999,
+					"seconds" : "42"
+				},
+				"startTime" : 
+				{
+					"nanos" : 640000000,
+					"seconds" : "41"
+				},
+				"word" : "5시 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 479999999,
+					"seconds" : "42"
+				},
+				"startTime" : 
+				{
+					"nanos" : 119999999,
+					"seconds" : "42"
+				},
+				"word" : "사이 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 289999999,
+					"seconds" : "43"
+				},
+				"startTime" : 
+				{
+					"nanos" : 750000000,
+					"seconds" : "42"
+				},
+				"word" : "평소보다 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 619999999,
+					"seconds" : "43"
+				},
+				"startTime" : 
+				{
+					"nanos" : 289999999,
+					"seconds" : "43"
+				},
+				"word" : "최대 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 579999999,
+					"seconds" : "44"
+				},
+				"startTime" : 
+				{
+					"nanos" : 619999999,
+					"seconds" : "43"
+				},
+				"word" : "15퍼센트나 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 789999999,
+					"seconds" : "44"
+				},
+				"startTime" : 
+				{
+					"nanos" : 579999999,
+					"seconds" : "44"
+				},
+				"word" : "더 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 149999999,
+					"seconds" : "45"
+				},
+				"startTime" : 
+				{
+					"nanos" : 789999999,
+					"seconds" : "44"
+				},
+				"word" : "많은 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 509999999,
+					"seconds" : "45"
+				},
+				"startTime" : 
+				{
+					"nanos" : 149999999,
+					"seconds" : "45"
+				},
+				"word" : "사고가 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 229999999,
+					"seconds" : "46"
+				},
+				"startTime" : 
+				{
+					"nanos" : 509999999,
+					"seconds" : "45"
+				},
+				"word" : "발생합니다. "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 609999999,
+					"seconds" : "47"
+				},
+				"startTime" : 
+				{
+					"nanos" : 979999999,
+					"seconds" : "46"
+				},
+				"word" : "휴가철에는 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 939999999,
+					"seconds" : "47"
+				},
+				"startTime" : 
+				{
+					"nanos" : 640000000,
+					"seconds" : "47"
+				},
+				"word" : "타이어 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 539999999,
+					"seconds" : "48"
+				},
+				"startTime" : 
+				{
+					"nanos" : 939999999,
+					"seconds" : "47"
+				},
+				"word" : "교체와 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 960000000,
+					"seconds" : "48"
+				},
+				"startTime" : 
+				{
+					"nanos" : 539999999,
+					"seconds" : "48"
+				},
+				"word" : "긴급 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 350000000,
+					"seconds" : "49"
+				},
+				"startTime" : 
+				{
+					"nanos" : 960000000,
+					"seconds" : "48"
+				},
+				"word" : "견인 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 770000000,
+					"seconds" : "49"
+				},
+				"startTime" : 
+				{
+					"nanos" : 350000000,
+					"seconds" : "49"
+				},
+				"word" : "서비스 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 100000000,
+					"seconds" : "50"
+				},
+				"startTime" : 
+				{
+					"nanos" : 770000000,
+					"seconds" : "49"
+				},
+				"word" : "이용도 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 820000000,
+					"seconds" : "50"
+				},
+				"startTime" : 
+				{
+					"nanos" : 100000000,
+					"seconds" : "50"
+				},
+				"word" : "늘어납니다. "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 929999999,
+					"seconds" : "51"
+				},
+				"startTime" : 
+				{
+					"nanos" : 390000000,
+					"seconds" : "51"
+				},
+				"word" : "기록적인 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 380000000,
+					"seconds" : "52"
+				},
+				"startTime" : 
+				{
+					"nanos" : 929999999,
+					"seconds" : "51"
+				},
+				"word" : "폭염이 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 830000000,
+					"seconds" : "52"
+				},
+				"startTime" : 
+				{
+					"nanos" : 380000000,
+					"seconds" : "52"
+				},
+				"word" : "이어지는 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 70000000,
+					"seconds" : "53"
+				},
+				"startTime" : 
+				{
+					"nanos" : 829999999,
+					"seconds" : "52"
+				},
+				"word" : "이번 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 549999999,
+					"seconds" : "53"
+				},
+				"startTime" : 
+				{
+					"nanos" : 70000000,
+					"seconds" : "53"
+				},
+				"word" : "여름에는 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 179999999,
+					"seconds" : "54"
+				},
+				"startTime" : 
+				{
+					"nanos" : 670000000,
+					"seconds" : "53"
+				},
+				"word" : "고속도로 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 539999999,
+					"seconds" : "54"
+				},
+				"startTime" : 
+				{
+					"nanos" : 179999999,
+					"seconds" : "54"
+				},
+				"word" : "표면 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 929999999,
+					"seconds" : "54"
+				},
+				"startTime" : 
+				{
+					"nanos" : 539999999,
+					"seconds" : "54"
+				},
+				"word" : "온도가 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 679999999,
+					"seconds" : "55"
+				},
+				"startTime" : 
+				{
+					"nanos" : 929999999,
+					"seconds" : "54"
+				},
+				"word" : "올라가면서 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 250000000,
+					"seconds" : "56"
+				},
+				"startTime" : 
+				{
+					"nanos" : 710000000,
+					"seconds" : "55"
+				},
+				"word" : "장거리 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 520000000,
+					"seconds" : "56"
+				},
+				"startTime" : 
+				{
+					"nanos" : 250000000,
+					"seconds" : "56"
+				},
+				"word" : "운행 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 760000000,
+					"seconds" : "56"
+				},
+				"startTime" : 
+				{
+					"nanos" : 520000000,
+					"seconds" : "56"
+				},
+				"word" : "중 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 210000000,
+					"seconds" : "57"
+				},
+				"startTime" : 
+				{
+					"nanos" : 789999999,
+					"seconds" : "56"
+				},
+				"word" : "타이어에 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 630000000,
+					"seconds" : "57"
+				},
+				"startTime" : 
+				{
+					"nanos" : 210000000,
+					"seconds" : "57"
+				},
+				"word" : "문제가 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 900000000,
+					"seconds" : "57"
+				},
+				"startTime" : 
+				{
+					"nanos" : 630000000,
+					"seconds" : "57"
+				},
+				"word" : "생길 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 259999999,
+					"seconds" : "58"
+				},
+				"startTime" : 
+				{
+					"nanos" : 899999999,
+					"seconds" : "57"
+				},
+				"word" : "확률이 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 379999999,
+					"seconds" : "58"
+				},
+				"startTime" : 
+				{
+					"nanos" : 259999999,
+					"seconds" : "58"
+				},
+				"word" : "더 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 640000000,
+					"seconds" : "58"
+				},
+				"startTime" : 
+				{
+					"nanos" : 380000000,
+					"seconds" : "58"
+				},
+				"word" : "높아 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 890000000,
+					"seconds" : "58"
+				},
+				"startTime" : 
+				{
+					"nanos" : 640000000,
+					"seconds" : "58"
+				},
+				"word" : "지기 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 429999999,
+					"seconds" : "59"
+				},
+				"startTime" : 
+				{
+					"nanos" : 890000000,
+					"seconds" : "58"
+				},
+				"word" : "때문에 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 910000000,
+					"seconds" : "59"
+				},
+				"startTime" : 
+				{
+					"nanos" : 670000000,
+					"seconds" : "59"
+				},
+				"word" : "휴가 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 299999999,
+					"seconds" : "60"
+				},
+				"startTime" : 
+				{
+					"nanos" : 909999999,
+					"seconds" : "59"
+				},
+				"word" : "떠나기 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 539999999,
+					"seconds" : "60"
+				},
+				"startTime" : 
+				{
+					"nanos" : 299999999,
+					"seconds" : "60"
+				},
+				"word" : "전 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 79999999,
+					"seconds" : "61"
+				},
+				"startTime" : 
+				{
+					"nanos" : 570000000,
+					"seconds" : "60"
+				},
+				"word" : "꼼꼼히 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 379999999,
+					"seconds" : "61"
+				},
+				"startTime" : 
+				{
+					"nanos" : 79999999,
+					"seconds" : "61"
+				},
+				"word" : "챙겨 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 560000000,
+					"seconds" : "61"
+				},
+				"startTime" : 
+				{
+					"nanos" : 380000000,
+					"seconds" : "61"
+				},
+				"word" : "봐야 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 39999999,
+					"seconds" : "62"
+				},
+				"startTime" : 
+				{
+					"nanos" : 560000000,
+					"seconds" : "61"
+				},
+				"word" : "합니다. "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 759999999,
+					"seconds" : "62"
+				},
+				"startTime" : 
+				{
+					"nanos" : 609999999,
+					"seconds" : "62"
+				},
+				"word" : "또 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 210000000,
+					"seconds" : "63"
+				},
+				"startTime" : 
+				{
+					"nanos" : 759999999,
+					"seconds" : "62"
+				},
+				"word" : "가족과 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 480000000,
+					"seconds" : "63"
+				},
+				"startTime" : 
+				{
+					"nanos" : 210000000,
+					"seconds" : "63"
+				},
+				"word" : "함께 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 750000000,
+					"seconds" : "63"
+				},
+				"startTime" : 
+				{
+					"nanos" : 479999999,
+					"seconds" : "63"
+				},
+				"word" : "하는 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 230000000,
+					"seconds" : "64"
+				},
+				"startTime" : 
+				{
+					"nanos" : 780000000,
+					"seconds" : "63"
+				},
+				"word" : "안전한 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 620000000,
+					"seconds" : "64"
+				},
+				"startTime" : 
+				{
+					"nanos" : 230000000,
+					"seconds" : "64"
+				},
+				"word" : "여행을 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 890000000,
+					"seconds" : "64"
+				},
+				"startTime" : 
+				{
+					"nanos" : 620000000,
+					"seconds" : "64"
+				},
+				"word" : "위해 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 549999999,
+					"seconds" : "65"
+				},
+				"startTime" : 
+				{
+					"nanos" : 99999999,
+					"seconds" : "65"
+				},
+				"word" : "뒷자리 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 819999999,
+					"seconds" : "65"
+				},
+				"startTime" : 
+				{
+					"nanos" : 549999999,
+					"seconds" : "65"
+				},
+				"word" : "앉은 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 89999999,
+					"seconds" : "66"
+				},
+				"startTime" : 
+				{
+					"nanos" : 819999999,
+					"seconds" : "65"
+				},
+				"word" : "어린 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 570000000,
+					"seconds" : "66"
+				},
+				"startTime" : 
+				{
+					"nanos" : 90000000,
+					"seconds" : "66"
+				},
+				"word" : "자녀도 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 79999999,
+					"seconds" : "67"
+				},
+				"startTime" : 
+				{
+					"nanos" : 569999999,
+					"seconds" : "66"
+				},
+				"word" : "반드시 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 920000000,
+					"seconds" : "67"
+				},
+				"startTime" : 
+				{
+					"nanos" : 79999999,
+					"seconds" : "67"
+				},
+				"word" : "안전벨트를 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 310000000,
+					"seconds" : "68"
+				},
+				"startTime" : 
+				{
+					"nanos" : 920000000,
+					"seconds" : "67"
+				},
+				"word" : "매도록 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 430000000,
+					"seconds" : "68"
+				},
+				"startTime" : 
+				{
+					"nanos" : 310000000,
+					"seconds" : "68"
+				},
+				"word" : "해야 "
+			},
+			{
+				"endTime" : 
+				{
+					"nanos" : 850000000,
+					"seconds" : "68"
+				},
+				"startTime" : 
+				{
+					"nanos" : 430000000,
+					"seconds" : "68"
+				},
+				"word" : "합니다. "
+			}
+]
+} ]
+} ]
+}
