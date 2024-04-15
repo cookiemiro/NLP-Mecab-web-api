@@ -242,7 +242,8 @@ def run_keyword_extraction(in_json, language='kor', min_length=MIN_LENGTH, verbo
             json.dump(json_data, f_json, ensure_ascii=False, indent='\t')
 
 # String Input Interface
-def run_keyword_extraction_string(in_string, candidate_num=DEFAULT_CANDIDATE_NUM, target_keywords_num=DEFAULT_TARGET_KEYWORDS_NUM, language='kor', min_length=MIN_LENGTH, num_saved_counts_for_prediction=NUM_SAVED_COUNTS_FOR_PREDICTION, verbose=False):
+# def run_keyword_extraction_string(in_string, candidate_num=DEFAULT_CANDIDATE_NUM, target_keywords_num=DEFAULT_TARGET_KEYWORDS_NUM, language='kor', min_length=MIN_LENGTH, num_saved_counts_for_prediction=NUM_SAVED_COUNTS_FOR_PREDICTION, verbose=False):
+def run_keyword_extraction_string(in_string, candidate_num=None, target_keywords_num=DEFAULT_TARGET_KEYWORDS_NUM, language='kor', min_length=MIN_LENGTH, num_saved_counts_for_prediction=NUM_SAVED_COUNTS_FOR_PREDICTION, verbose=False):
     if(language=='kor'):
         noun_counts_statistics = NOUN_COUNTS_KOREAN
     elif(language=='kor-va'):
@@ -266,5 +267,5 @@ def run_keyword_extraction_string(in_string, candidate_num=DEFAULT_CANDIDATE_NUM
     keyword_counts = remove_non_keywords(keyword_counts)
     return keyword_counts
 
-def run_keyword_extraction_api(in_string, language='kor', max_num_keywords=10, num_saved_counts_for_prediction=NUM_SAVED_COUNTS_FOR_PREDICTION):
-    return run_keyword_extraction_string(in_string, candidate_num=max_num_keywords*3, target_keywords_num=max_num_keywords, language=language, num_saved_counts_for_prediction=num_saved_counts_for_prediction)
+def run_keyword_extraction_api(in_string, language='kor', max_num_keywords=None, num_saved_counts_for_prediction=NUM_SAVED_COUNTS_FOR_PREDICTION):
+    return run_keyword_extraction_string(in_string, candidate_num=max_num_keywords, target_keywords_num=max_num_keywords, language=language, num_saved_counts_for_prediction=num_saved_counts_for_prediction)

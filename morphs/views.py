@@ -29,11 +29,29 @@ def run_test_script(request):
 
 def read_csv_file(request):
     if request.method == "POST":
-        print(json.loads(request.body))
-        
+        print(request.body)
         json_data = json.loads(request.body)
-        dicts = json_data["dicts"]
-        print(len(dicts))
+        print(json_data)
+        
+        extractAdjectives = json_data["extractAdjectives"]
+        keywordExtraction = json_data["keywordExtraction"]
+        ignoreOneWord = json_data["ignoreOneWord"]
+        text = json_data["text"]
+        dicts = json_data["dicts"] if "dicts" in json_data else None
+        print(extractAdjectives)
+        print(ignoreOneWord)
+        print(keywordExtraction)
+        print(text)
+        print(dicts)
+        
+        if extractAdjectives:
+           language = "kor-adjective"
+        elif extractAdjectives and keywordExtraction:
+            language = "kor-adjective-and-noun"
+        else:
+            language = "kor"
+        
+        print(language)
         
         if json_data["type"] == "고유명사":
 
@@ -68,44 +86,75 @@ def read_csv_file(request):
             # # csv_reader = csv.reader(file_content.splitlines(), delimiter=',')
             # # for row in csv_reader:
             # #     print(row)
+            if dicts:
+                file_path = '/home/xodml/keyword-extraction-master/mecab-ko-dic-2.1.1-20180720/user-dic/nnp.csv'
 
-            file_path = '/home/xodml/keyword-extraction-master/mecab-ko-dic-2.1.1-20180720/user-dic/nnp.csv'
-
-            for i in range(len(dicts)):
-                dict_item = dicts[i]
-                representative_keyword = dict_item["representative_keyword"]
-                keywords = dict_item["keywords"]
-            
-                with open(file_path, 'a', encoding='utf-8') as f:
-                    
-                    # csv 파일에 첫 번째에 빈줄이 있으면 사전 적용이 잘 되지 않음.
-                    if i == 0:
-                        f.seek(0)  # 파일의 처음으로 이동
-                        f.truncate()  # 파일 내용을 지움
-
-                    # 파일에 내용 쓰기
-                        f.write(f"{representative_keyword},,,,NNP,*,T,{representative_keyword},*,*,*,*,*")
-
-                    else:
-                        f.write(f"\n{representative_keyword},,,,NNP,*,T,{representative_keyword},*,*,*,*,*")
+                for i in range(len(dicts)):
+                    dict_item = dicts[i]
+                    representative_keyword = dict_item["representative_keyword"]
+                    keywords = dict_item["keywords"]
                 
-                    for keyword in keywords:   
+                    with open(file_path, 'a', encoding='utf-8') as f:
+                        
+                        # csv 파일에 첫 번째에 빈줄이 있으면 사전 적용이 잘 되지 않음.
+                        if i == 0:
+                            f.seek(0)  # 파일의 처음으로 이동
+                            f.truncate()  # 파일 내용을 지움
+
                         # 파일에 내용 쓰기
-                        f.write(f"\n{keyword},,,,NNP,*,T,{keyword},*,*,*,*,*")
+                            f.write(f"{representative_keyword},,,,NNP,*,T,{representative_keyword},*,*,*,*,*")
 
-            commands = [
-                "/home/xodml/keyword-extraction-master/mecab-ko-dic-2.1.1-20180720/tools/add-userdic.sh",
-                "/home/xodml/keyword-extraction-master/user-dic.sh",
-            ]
-            
-            print(settings.SUPERUSER_KEY)
-            sudo_password = settings.SUPERUSER_KEY
-            
-            for cmd in commands:
-                run_bash_command(cmd, sudo_password)
-                # time.sleep(1)
+                        else:
+                            f.write(f"\n{representative_keyword},,,,NNP,*,T,{representative_keyword},*,*,*,*,*")
+                    
+                        for keyword in keywords:   
+                            # 파일에 내용 쓰기
+                            f.write(f"\n{keyword},,,,NNP,*,T,{keyword},*,*,*,*,*")
 
-        return JsonResponse({"message": "사용자 사전이 저장되었습니다."})
+                commands = [
+                    "/home/xodml/keyword-extraction-master/mecab-ko-dic-2.1.1-20180720/tools/add-userdic.sh",
+                    "/home/xodml/keyword-extraction-master/user-dic.sh",
+                ]
+                
+                sudo_password = settings.SUPERUSER_KEY
+            
+                for cmd in commands:
+                    run_bash_command(cmd, sudo_password)
+                    # time.sleep(1)
+                    
+            reload(src.keywordExtraction.keyword_extraction)
+            keyword_data = run_keyword_extraction_api(text, language=language, max_num_keywords=30)
+            print(keywords)
+            
+            response = []
+            
+            for item in dicts:
+                representative_keyword = item['representative_keyword']
+                keywords = item['keywords']
+                representative_count = 0
+                
+                # 대표 키워드와 해당하는 키워드들의 빈도수 합산
+                for i, (keyword, count) in enumerate(keyword_data):
+                    if keyword == representative_keyword or keyword in keywords:
+                        representative_count += count
+                
+                # 키워드 개수를 대표 키워드로 통합
+                for i, (keyword, count) in enumerate(keyword_data):
+                    if keyword == representative_keyword or keyword in keywords:
+                        keyword_data[i] = (representative_keyword, representative_count)
+
+            # 중복된 튜플 제거
+            keyword_data = list(set(keyword_data))
+                        
+            response = {
+                "keywords" : keyword_data,
+                "message": {
+                    "dict": "사용자 사전이 저장되었습니다.",
+                    "keywords": "키워드 추출이 완료 되었습니다."
+                },
+            }
+
+        return JsonResponse(response, status=200)
     else:
         return HttpResponse("POST 요청만 허용됩니다.", status=405)
 
