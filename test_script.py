@@ -24,7 +24,7 @@ in_string ="안녕하세요. 형태소 분석기입니다. 이것을 써 보세�
 t1=time.time()
 
 print('<한국어 키 명사 추출 10개>')
-print(run_keyword_extraction_api(in_string, max_num_keywords=30, language='kor'))
+print(run_keyword_extraction_api(in_string, max_num_keywords=30, language='kor', min_length=5))
 print()
 
 # print('<한국어 키 명사 추출 2개>')

@@ -267,5 +267,5 @@ def run_keyword_extraction_string(in_string, candidate_num=None, target_keywords
     keyword_counts = remove_non_keywords(keyword_counts)
     return keyword_counts
 
-def run_keyword_extraction_api(in_string, language='kor', max_num_keywords=None, num_saved_counts_for_prediction=NUM_SAVED_COUNTS_FOR_PREDICTION):
-    return run_keyword_extraction_string(in_string, candidate_num=max_num_keywords, target_keywords_num=max_num_keywords, language=language, num_saved_counts_for_prediction=num_saved_counts_for_prediction)
+def run_keyword_extraction_api(in_string, language='kor', max_num_keywords=None, num_saved_counts_for_prediction=NUM_SAVED_COUNTS_FOR_PREDICTION, min_length=MIN_LENGTH):
+    return run_keyword_extraction_string(in_string, candidate_num=max_num_keywords, target_keywords_num=max_num_keywords, language=language, num_saved_counts_for_prediction=num_saved_counts_for_prediction, min_length=min_length)

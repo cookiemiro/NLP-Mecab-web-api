@@ -123,7 +123,7 @@ def read_csv_file(request):
                     # time.sleep(1)
                     
             reload(src.keywordExtraction.keyword_extraction)
-            keyword_data = run_keyword_extraction_api(text, language=language, max_num_keywords=30)
+            keyword_data = run_keyword_extraction_api(text, language=language, max_num_keywords=30, min_length=1 if ignoreOneWord else 0)
             print(keywords)
             
             response = []
