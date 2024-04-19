@@ -15,6 +15,7 @@ dicts = [
             }
         ]
 
+text = "안녕하세요. 반갑습니다. 읽혀요. All Live Young!"
 
 keyword_data = [('분석', 2), ('형태소 분석기', 1), ('분석기', 1), ('형태소', 1), ('올리브영', 2), ('올영', 1), ('올리브 영', 3)]
 
@@ -37,5 +38,17 @@ for item in dicts:
 # 중복된 튜플 제거
 keyword_data = list(set(keyword_data))
 
+def detect_language(text):
+    k_count = 0
+    e_count = 0
+    for c in text:
+        if ord('가') <= ord(c) <= ord('힣'):
+            k_count+=1
+        elif ord('a') <= ord(c.lower()) <= ord('z'):
+            e_count+=1
+    return "Korean" if k_count>e_count else "English"
+
 # 변환된 데이터 확인
 print(keyword_data)
+
+print(detect_language(text))

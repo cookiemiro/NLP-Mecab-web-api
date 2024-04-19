@@ -27,65 +27,38 @@ def run_test_script(request):
     else:
         return HttpResponse("POST 요청만 허용됩니다.", status=405)
 
+# wsl port-forwarding: https://thenicesj.tistory.com/775
+# https://codeac.tistory.com/118
 def read_csv_file(request):
     if request.method == "POST":
-        print(request.body)
         json_data = json.loads(request.body)
-        print(json_data)
         
         extractAdjectives = json_data["extractAdjectives"]
         keywordExtraction = json_data["keywordExtraction"]
         ignoreOneWord = json_data["ignoreOneWord"]
         text = json_data["text"]
-        dicts = json_data["dicts"] if "dicts" in json_data else None
-        print(extractAdjectives)
-        print(ignoreOneWord)
-        print(keywordExtraction)
-        print(text)
-        print(dicts)
+        dicts = json_data["dicts"] if "dicts" in json_data else None 
+        sentence_language = detect_language(text)
         
-        if extractAdjectives:
-           language = "kor-adjective"
-        elif extractAdjectives and keywordExtraction:
-            language = "kor-adjective-and-noun"
-        else:
-            language = "kor"
-        
-        print(language)
+        if sentence_language == "Korean":
+            if extractAdjectives:
+                language = "kor-adjective"
+            elif extractAdjectives and keywordExtraction:
+                language = "kor-adjective-and-noun"
+            else:
+                language = "kor"
+        elif sentence_language == "English":
+            if extractAdjectives:
+                language = "eng-adjective"
+            elif extractAdjectives and keywordExtraction:
+                language = "eng"
+            else:
+                language = "eng"
         
         if json_data["type"] == "고유명사":
-
-            # # 기존 CSV 파일 불러오기
-            # existing_data = []
-            # with open('existing_data.csv', 'r', newline='', encoding='utf-8') as csvfile:
-            #     reader = csv.reader(csvfile)
-            #     existing_data = list(reader)
-
-            # # CSV 파일에 데이터 추가
-            # with open('existing_data.csv', 'a', newline='', encoding='utf-8') as csvfile:
-            #     writer = csv.writer(csvfile)
-            #     for row in converted_data:
-            #         writer.writerow(row)
-
-            # # 기존 데이터에 새로운 데이터 추가
-            # existing_data.extend(converted_data)
-
-            # # 결과 확인을 위해 출력
-            # for row in existing_data:
-            #     print(row)
-                
-            
-            # print(request.FILES)
-
-            # file = request.FILES["csv"]
-            # # 파일 내용을 읽어옴
-            # file_content = file.read().decode("utf-8")
-            # # CSV 파싱
-
-            # print(file_content)
-            # # csv_reader = csv.reader(file_content.splitlines(), delimiter=',')
-            # # for row in csv_reader:
-            # #     print(row)
+            # 사용자 사전 적용 우선순위: https://mondayus.tistory.com/46
+            # 종성 추가에 문제가 생기면 보고 적용하기: https://hipster4020.tistory.com/184
+            # 사용자 사전의 형식: https://joyhong.tistory.com/128
             if dicts:
                 file_path = '/home/xodml/keyword-extraction-master/mecab-ko-dic-2.1.1-20180720/user-dic/nnp.csv'
 
@@ -101,7 +74,7 @@ def read_csv_file(request):
                             f.seek(0)  # 파일의 처음으로 이동
                             f.truncate()  # 파일 내용을 지움
 
-                        # 파일에 내용 쓰기
+                            # 파일에 내용 쓰기
                             f.write(f"{representative_keyword},,,,NNP,*,T,{representative_keyword},*,*,*,*,*")
 
                         else:
@@ -124,7 +97,6 @@ def read_csv_file(request):
                     
             reload(src.keywordExtraction.keyword_extraction)
             keyword_data = run_keyword_extraction_api(text, language=language, max_num_keywords=30, min_length=1 if ignoreOneWord else 0)
-            print(keywords)
             
             response = []
             
@@ -139,15 +111,19 @@ def read_csv_file(request):
                         representative_count += count
                 
                 # 키워드 개수를 대표 키워드로 통합
+                # 하위 키워드들을 대표 키워드로 변경
                 for i, (keyword, count) in enumerate(keyword_data):
                     if keyword == representative_keyword or keyword in keywords:
+                        # 각 인덱스의 값들을 튜플로 변환
                         keyword_data[i] = (representative_keyword, representative_count)
 
             # 중복된 튜플 제거
+            # 집합({})을 사용해서 중복된 데이터(튜플)들을 제거
             keyword_data = list(set(keyword_data))
                         
             response = {
                 "keywords" : keyword_data,
+                "text_language" : sentence_language,
                 "message": {
                     "dict": "사용자 사전이 저장되었습니다.",
                     "keywords": "키워드 추출이 완료 되었습니다."
@@ -172,3 +148,15 @@ def run_bash_command(command, password):
     except Exception as e:
         # 예외 처리
         print(f"에러 발생: {str(e)}")
+
+# 요약문에 대한 요구사항을 확인하고 추가
+# 요약문 전부 한국어와 영문이 들어옴.
+def detect_language(text):
+    k_count = 0
+    e_count = 0
+    for c in text:
+        if ord('가') <= ord(c) <= ord('힣'):
+            k_count+=1
+        elif ord('a') <= ord(c.lower()) <= ord('z'):
+            e_count+=1
+    return "Korean" if k_count>e_count else "English"
