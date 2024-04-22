@@ -38,24 +38,9 @@ def read_csv_file(request):
         ignoreOneWord = json_data["ignoreOneWord"]
         text = json_data["text"]
         dicts = json_data["dicts"] if "dicts" in json_data else None 
-        sentence_language = detect_language(text)
-        
-        if sentence_language == "Korean":
-            if extractAdjectives:
-                language = "kor-adjective"
-            elif extractAdjectives and keywordExtraction:
-                language = "kor-adjective-and-noun"
-            else:
-                language = "kor"
-        elif sentence_language == "English":
-            if extractAdjectives:
-                language = "eng-adjective"
-            elif extractAdjectives and keywordExtraction:
-                language = "eng"
-            else:
-                language = "eng"
         
         if json_data["type"] == "고유명사":
+            # 사용자 사전에 대한 폴더 설명 및 우선 순위 적용(윈도우지만 설명이 잘 되어 있음): https://luminitworld.tistory.com/104
             # 사용자 사전 적용 우선순위: https://mondayus.tistory.com/46
             # 종성 추가에 문제가 생기면 보고 적용하기: https://hipster4020.tistory.com/184
             # 사용자 사전의 형식: https://joyhong.tistory.com/128
@@ -96,34 +81,69 @@ def read_csv_file(request):
                     # time.sleep(1)
                     
             reload(src.keywordExtraction.keyword_extraction)
-            keyword_data = run_keyword_extraction_api(text, language=language, max_num_keywords=30, min_length=1 if ignoreOneWord else 0)
             
-            response = []
+            keyword_response = []
             
-            for item in dicts:
-                representative_keyword = item['representative_keyword']
-                keywords = item['keywords']
-                representative_count = 0
+            for text_data in text:  # 각 텍스트 데이터에 대해 처리
+                person = text_data["person"]
+                answers = text_data["answer"]
                 
-                # 대표 키워드와 해당하는 키워드들의 빈도수 합산
-                for i, (keyword, count) in enumerate(keyword_data):
-                    if keyword == representative_keyword or keyword in keywords:
-                        representative_count += count
-                
-                # 키워드 개수를 대표 키워드로 통합
-                # 하위 키워드들을 대표 키워드로 변경
-                for i, (keyword, count) in enumerate(keyword_data):
-                    if keyword == representative_keyword or keyword in keywords:
-                        # 각 인덱스의 값들을 튜플로 변환
-                        keyword_data[i] = (representative_keyword, representative_count)
-
-            # 중복된 튜플 제거
-            # 집합({})을 사용해서 중복된 데이터(튜플)들을 제거
-            keyword_data = list(set(keyword_data))
+                analyzed_answers = []  # 분석된 답변들을 저장할 리스트
+            
+                for answer in answers:  # 각 답변에 대해 형태소 분석 적용    
+                    
+                    sentence_language = detect_language(answer)
+                    
+                    if sentence_language == "Korean":
+                        if extractAdjectives:
+                            language = "kor-adjective"
+                        elif extractAdjectives and keywordExtraction:
+                            language = "kor-adjective-and-noun"
+                        else:
+                            language = "kor"
+                    elif sentence_language == "English":
+                        if extractAdjectives:
+                            language = "eng-adjective"
+                        elif extractAdjectives and keywordExtraction:
+                            language = "eng"
+                        else:
+                            language = "eng"
+                      
+                    keyword_data =  run_keyword_extraction_api(answer, language=language, max_num_keywords=30, min_length=1 if ignoreOneWord else 0)
+                    
+                    response = []
+            
+                    for item in dicts:
+                        representative_keyword = item['representative_keyword']
+                        keywords = item['keywords']
+                        representative_count = 0
                         
+                        # 대표 키워드와 해당하는 키워드들의 빈도수 합산
+                        for i, (keyword, count) in enumerate(keyword_data):
+                            if keyword == representative_keyword or keyword in keywords:
+                                representative_count += count
+                        
+                        # 키워드 개수를 대표 키워드로 통합
+                        # 하위 키워드들을 대표 키워드로 변경
+                        for i, (keyword, count) in enumerate(keyword_data):
+                            if keyword == representative_keyword or keyword in keywords:
+                                # 각 인덱스의 값들을 튜플로 변환
+                                keyword_data[i] = (representative_keyword, representative_count)
+
+                    # 중복된 튜플 제거
+                    # 집합({})을 사용해서 중복된 데이터(튜플)들을 제거
+                    keyword_data = list(set(keyword_data))
+                    
+                    analyzed_answers.append(keyword_data)
+                    
+                keyword_response.append({
+                    "person": person,
+                    "analyzed_answer": analyzed_answers
+                })
+                      
             response = {
-                "keywords" : keyword_data,
-                "text_language" : sentence_language,
+                "keywords" : keyword_response,
+                # "text_language" : sentence_language,
                 "message": {
                     "dict": "사용자 사전이 저장되었습니다.",
                     "keywords": "키워드 추출이 완료 되었습니다."
