@@ -12,7 +12,6 @@ def run_test_script(request):
     if request.method == "POST":
         json_data = json.loads(request.body)
         in_string = json_data["text"]
-        print(in_string)
         
         # 모듈 reload를 통하여 함수가 새롭게 로딩될 수 있도록 함.
         reload(src.keywordExtraction.keyword_extraction)
@@ -31,8 +30,9 @@ def run_test_script(request):
 # https://codeac.tistory.com/118
 def read_csv_file(request):
     if request.method == "POST":
-        json_data = json.loads(request.body)
         
+        home_directory = settings.BASE_DIR
+        json_data = json.loads(request.body)
         extractAdjectives = json_data["extractAdjectives"]
         keywordExtraction = json_data["keywordExtraction"]
         ignoreOneWord = json_data["ignoreOneWord"]
@@ -45,7 +45,7 @@ def read_csv_file(request):
             # 종성 추가에 문제가 생기면 보고 적용하기: https://hipster4020.tistory.com/184
             # 사용자 사전의 형식: https://joyhong.tistory.com/128
             if dicts:
-                file_path = '/home/xodml/keyword-extraction-master/mecab-ko-dic-2.1.1-20180720/user-dic/nnp.csv'
+                file_path = f'{home_directory}/mecab-ko-dic-2.1.1-20180720/user-dic/nnp.csv'
 
                 for i in range(len(dicts)):
                     dict_item = dicts[i]
@@ -70,8 +70,8 @@ def read_csv_file(request):
                             f.write(f"\n{keyword},,,,NNP,*,T,{keyword},*,*,*,*,*")
 
                 commands = [
-                    "/home/xodml/keyword-extraction-master/mecab-ko-dic-2.1.1-20180720/tools/add-userdic.sh",
-                    "/home/xodml/keyword-extraction-master/user-dic.sh",
+                    f"{home_directory}/mecab-ko-dic-2.1.1-20180720/tools/add-userdic.sh",
+                    f"{home_directory}/user-dic.sh",
                 ]
                 
                 sudo_password = settings.SUPERUSER_KEY
