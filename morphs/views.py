@@ -94,9 +94,7 @@ def read_csv_file(request):
                     if answer.endswith("."):
                         str_txt += answer + " "
                     else:
-                        str_txt += answer + ". "
-                
-                print(str_txt)  
+                        str_txt += answer + ". " 
                     
                 sentence_language = detect_language(str_txt)
                 
