@@ -45,13 +45,14 @@ def read_csv_file(request):
             # 종성 추가에 문제가 생기면 보고 적용하기: https://hipster4020.tistory.com/184
             # 사용자 사전의 형식: https://joyhong.tistory.com/128
             if dicts:
+                
                 file_path = f'{home_directory}/mecab-ko-dic-2.1.1-20180720/user-dic/nnp.csv'
 
                 for i in range(len(dicts)):
                     dict_item = dicts[i]
                     representative_keyword = dict_item["representative_keyword"]
                     keywords = dict_item["keywords"]
-                
+                 
                     with open(file_path, 'a', encoding='utf-8') as f:
                         
                         # csv 파일에 첫 번째에 빈줄이 있으면 사전 적용이 잘 되지 않음.
@@ -99,22 +100,25 @@ def read_csv_file(request):
                 sentence_language = detect_language(str_txt)
                 
                 if sentence_language == "Korean":
-                    if extractAdjectives:
-                        language = "kor-adjective"
-                    elif extractAdjectives and keywordExtraction:
+                    if extractAdjectives and keywordExtraction:
                         language = "kor-adjective-and-noun"
+                    elif extractAdjectives:
+                        language = "kor-adjective"            
                     else:
                         language = "kor"
                 elif sentence_language == "English":
-                    if extractAdjectives:
-                        language = "eng-adjective"
-                    elif extractAdjectives and keywordExtraction:
+                    if extractAdjectives and keywordExtraction:
                         language = "eng"
+                    elif extractAdjectives:
+                        language = "eng-adjective"
                     else:
                         language = "eng"
                     
                 keyword_data =  run_keyword_extraction_api(str_txt, language=language, max_num_keywords=30, min_length=1 if ignoreOneWord else 0)
-        
+                
+                # 백엔드와 타입을 맞추기 위해 변환(24.05.08) > (str, int) ==> (str, str)
+                keyword_data = [(word, str(count)) for word, count in keyword_data]
+                
                 for item in dicts:
                     representative_keyword = item['representative_keyword']
                     keywords = item['keywords']
@@ -123,24 +127,27 @@ def read_csv_file(request):
                     # 대표 키워드와 해당하는 키워드들의 빈도수 합산
                     for i, (keyword, count) in enumerate(keyword_data):
                         if keyword == representative_keyword or keyword in keywords:
-                            representative_count += count
+                            representative_count += int(count)
                     
                     # 키워드 개수를 대표 키워드로 통합
                     # 하위 키워드들을 대표 키워드로 변경
                     for i, (keyword, count) in enumerate(keyword_data):
                         if keyword == representative_keyword or keyword in keywords:
                             # 각 인덱스의 값들을 튜플로 변환
-                            keyword_data[i] = (representative_keyword, representative_count)
+                            keyword_data[i] = (representative_keyword, str(representative_count))
 
                 # 중복된 튜플 제거
                 # 집합({})을 사용해서 중복된 데이터(튜플)들을 제거
                 keyword_data = list(set(keyword_data))
+                
+                if not keyword_data:
+                    pass
+                else:
+                    keyword_response.append({
+                        "person": person,
+                        "analyzed_answer": keyword_data
+                    })
                     
-                keyword_response.append({
-                    "person": person,
-                    "analyzed_answer": keyword_data
-                })
-                      
             response = {
                 "keywords" : keyword_response,
                 # "text_language" : sentence_language,
