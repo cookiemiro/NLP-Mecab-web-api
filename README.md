@@ -69,4 +69,10 @@ sudo make install
 
 - dicts: 저희 프로젝트 형식에 맞췄습니다. 모두 사용자 사전으로 등록됩니다.
 
+### 5. 서버 배포 방법
+nohup gunicorn --bind=127.0.0.1:8000 --timeout=120 --workers=9 analyzer.wsgi:application &
+
+### 6. 깃헙 레포 토큰 등록
+https://tomatohj.tistory.com/20
+
 ### ※ api 서버로 사용했기 때문에 데이터 베이스는 사용하지 않았습니다.
