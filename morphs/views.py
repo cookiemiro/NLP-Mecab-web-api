@@ -44,8 +44,7 @@ def read_csv_file(request):
             # 사용자 사전 적용 우선순위: https://mondayus.tistory.com/46
             # 종성 추가에 문제가 생기면 보고 적용하기: https://hipster4020.tistory.com/184
             # 사용자 사전의 형식: https://joyhong.tistory.com/128
-            if dicts:
-                
+            if dicts:     
                 file_path = f'{home_directory}/mecab-ko-dic-2.1.1-20180720/user-dic/nnp.csv'
 
                 for i in range(len(dicts)):
@@ -119,26 +118,27 @@ def read_csv_file(request):
                 # 백엔드와 타입을 맞추기 위해 변환(24.05.08) > (str, int) ==> (str, str)
                 keyword_data = [(word, str(count)) for word, count in keyword_data]
                 
-                for item in dicts:
-                    representative_keyword = item['representative_keyword']
-                    keywords = item['keywords']
-                    representative_count = 0
-                    
-                    # 대표 키워드와 해당하는 키워드들의 빈도수 합산
-                    for i, (keyword, count) in enumerate(keyword_data):
-                        if keyword == representative_keyword or keyword in keywords:
-                            representative_count += int(count)
-                    
-                    # 키워드 개수를 대표 키워드로 통합
-                    # 하위 키워드들을 대표 키워드로 변경
-                    for i, (keyword, count) in enumerate(keyword_data):
-                        if keyword == representative_keyword or keyword in keywords:
-                            # 각 인덱스의 값들을 튜플로 변환
-                            keyword_data[i] = (representative_keyword, str(representative_count))
+                if dicts:
+                    for item in dicts:
+                        representative_keyword = item['representative_keyword']
+                        keywords = item['keywords']
+                        representative_count = 0
+                        
+                        # 대표 키워드와 해당하는 키워드들의 빈도수 합산
+                        for i, (keyword, count) in enumerate(keyword_data):
+                            if keyword == representative_keyword or keyword in keywords:
+                                representative_count += int(count)
+                        
+                        # 키워드 개수를 대표 키워드로 통합
+                        # 하위 키워드들을 대표 키워드로 변경
+                        for i, (keyword, count) in enumerate(keyword_data):
+                            if keyword == representative_keyword or keyword in keywords:
+                                # 각 인덱스의 값들을 튜플로 변환
+                                keyword_data[i] = (representative_keyword, str(representative_count))
 
-                # 중복된 튜플 제거
-                # 집합({})을 사용해서 중복된 데이터(튜플)들을 제거
-                keyword_data = list(set(keyword_data))
+                    # 중복된 튜플 제거
+                    # 집합({})을 사용해서 중복된 데이터(튜플)들을 제거
+                    keyword_data = list(set(keyword_data))
                 
                 if not keyword_data:
                     pass
