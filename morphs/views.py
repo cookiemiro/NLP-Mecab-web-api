@@ -114,9 +114,16 @@ def read_csv_file(request):
                         language = "eng"
                     
                 keyword_data =  run_keyword_extraction_api(str_txt, language=language, max_num_keywords=30, min_length=1 if ignoreOneWord else 0)
+                print('key_data ', keyword_data)
                 
                 # 백엔드와 타입을 맞추기 위해 변환(24.05.08) > (str, int) ==> (str, str)
-                keyword_data = [(word, str(count)) for word, count in keyword_data]
+                for i, (word, count) in enumerate(keyword_data):
+                    if word[1] == 'noun':
+                        keyword_data[i] = (word[0], str(count), 1)
+                    elif word[1] == 'adjective':
+                        keyword_data[i] = (word[0], str(count), 2)
+                # keyword_data = [(word[0], str(count)) for word, count in keyword_data]
+                print(keyword_data)
                 
                 if dicts:
                     for item in dicts:
@@ -125,16 +132,19 @@ def read_csv_file(request):
                         representative_count = 0
                         
                         # 대표 키워드와 해당하는 키워드들의 빈도수 합산
-                        for i, (keyword, count) in enumerate(keyword_data):
+                        for i, (keyword, pos, count) in enumerate(keyword_data):
                             if keyword == representative_keyword or keyword in keywords:
                                 representative_count += int(count)
                         
                         # 키워드 개수를 대표 키워드로 통합
                         # 하위 키워드들을 대표 키워드로 변경
-                        for i, (keyword, count) in enumerate(keyword_data):
+                        for i, (keyword, pos, count) in enumerate(keyword_data):
                             if keyword == representative_keyword or keyword in keywords:
                                 # 각 인덱스의 값들을 튜플로 변환
-                                keyword_data[i] = (representative_keyword, str(representative_count))
+                                if pos == 'noun':
+                                    keyword_data[i] = (representative_keyword, str(representative_count), 1)
+                                elif pos == 'adjective':
+                                    keyword_data[i] = (representative_keyword, str(representative_count), 2)
 
                     # 중복된 튜플 제거
                     # 집합({})을 사용해서 중복된 데이터(튜플)들을 제거

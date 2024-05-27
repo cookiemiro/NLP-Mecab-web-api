@@ -59,37 +59,75 @@ def get_pos_list(target_string, tag='noun'):
         all_pos = mecab.pos(target_string)
         pos_list = [elem for elem in all_pos if (elem[1] == 'NNG' or elem[1] == 'NNP')] # 일반명사, 고유명사
         for i in range(len(pos_list)):
-            words.append(pos_list[i][0])
+             words.append((pos_list[i][0], 'noun'))
 
     elif tag == 'kor-va': # 형용사인데 va 만
         all_pos = mecab.pos(target_string)
         pos_list = [elem for elem in all_pos if ('VA' in elem[1])] # 형용사
         for i in range(len(pos_list)):
-            words.append(pos_list[i][0])
+            words.append((pos_list[i][0], 'adjective'))
 
     elif tag == 'kor-adjective': 
         all_pos = mecab.pos(target_string)
-        words = get_adjectives(all_pos)
+        adjectives = get_adjectives(all_pos)
+        words = [(word, 'adjective') for word in adjectives]
 
     elif tag == 'kor-adjective-and-noun':
         all_pos = mecab.pos(target_string)
         noun_list = [elem for elem in all_pos if (elem[1] == 'NNG' or elem[1] == 'NNP')] # 일반명사, 고유명사
         for i in range(len(noun_list)):
-            words.append(noun_list[i][0])
+            words.append((noun_list[i][0], 'noun'))
         adjectives = get_adjectives(all_pos)
-        words += adjectives
+        words += [(word, 'adjective') for word in adjectives]
 
     elif tag == 'eng-noun':
         is_noun = is_noun = lambda pos: pos[:2].startswith('NN')
         tokenized = nltk.pos_tag(nltk.word_tokenize(target_string))
-        words = [word for (word, pos) in tokenized if is_noun(pos)]
+        words = [(word, 'noun') for (word, pos) in tokenized if is_noun(pos)]
 
     elif tag == 'eng-adjective':
-        is_noun = is_noun = lambda pos: pos[:2].startswith('JJ')
+        is_adjective = is_adjective = lambda pos: pos[:2].startswith('VA')
         tokenized = nltk.pos_tag(nltk.word_tokenize(target_string))
-        words = [word for (word, pos) in tokenized if is_noun(pos)]
+        words = [(word, 'adjective') for (word, pos) in tokenized if is_adjective(pos)]
 
     return words
+
+    # words = []
+    # if tag=='kor-noun':
+    #     all_pos = mecab.pos(target_string)
+    #     pos_list = [elem for elem in all_pos if (elem[1] == 'NNG' or elem[1] == 'NNP')] # 일반명사, 고유명사
+    #     for i in range(len(pos_list)):
+    #         words.append(pos_list[i][0])
+
+    # elif tag == 'kor-va': # 형용사인데 va 만
+    #     all_pos = mecab.pos(target_string)
+    #     pos_list = [elem for elem in all_pos if ('VA' in elem[1])] # 형용사
+    #     for i in range(len(pos_list)):
+    #         words.append(pos_list[i][0])
+
+    # elif tag == 'kor-adjective': 
+    #     all_pos = mecab.pos(target_string)
+    #     words = get_adjectives(all_pos)
+
+    # elif tag == 'kor-adjective-and-noun':
+    #     all_pos = mecab.pos(target_string)
+    #     noun_list = [elem for elem in all_pos if (elem[1] == 'NNG' or elem[1] == 'NNP')] # 일반명사, 고유명사
+    #     for i in range(len(noun_list)):
+    #         words.append(noun_list[i][0])
+    #     adjectives = get_adjectives(all_pos)
+    #     words += adjectives
+
+    # elif tag == 'eng-noun':
+    #     is_noun = is_noun = lambda pos: pos[:2].startswith('NN')
+    #     tokenized = nltk.pos_tag(nltk.word_tokenize(target_string))
+    #     words = [word for (word, pos) in tokenized if is_noun(pos)]
+
+    # elif tag == 'eng-adjective':
+    #     is_adjective = is_adjective = lambda pos: pos[:2].startswith('VA')
+    #     tokenized = nltk.pos_tag(nltk.word_tokenize(target_string))
+    #     words = [word for (word, pos) in tokenized if is_adjective(pos)]
+
+    # return words
 
 def get_candidates(target_doc, num_candidate, input_type, language, verbose):
     if(input_type == 'file'):
@@ -176,10 +214,17 @@ def generate_tmp(in_json):
     return tmp_json
 
 def remove_unlikely_keywords(keyword_counts, min_length):
-    return [keyword_count for keyword_count in keyword_counts if keyword_count[1] > MIN_COUNT  and len(keyword_count[0].strip()) > min_length]
+    # print(keyword_counts)
+    # print(keyword_counts[0][0])
+    # print(keyword_counts[0][1])
+    return [
+        keyword_count for keyword_count in keyword_counts 
+        if keyword_count[1] > MIN_COUNT and len(keyword_count[0][0].strip()) > min_length
+    ]
+    # return [keyword_count for keyword_count in keyword_counts if keyword_count[1] > MIN_COUNT  and len(keyword_count[0].strip()) > min_length]
 
 def remove_non_keywords(keyword_counts):
-    return [keyword_count for keyword_count in keyword_counts if (keyword_count[0].strip() not in NON_KEYWORD_LIST)]
+    return [keyword_count for keyword_count in keyword_counts if (keyword_count[0][0].strip() not in NON_KEYWORD_LIST)]
 
 def run_keyword_extraction(in_json, language='kor', min_length=MIN_LENGTH, verbose=False):
     def get_transcript(words):
