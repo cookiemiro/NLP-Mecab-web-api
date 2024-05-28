@@ -119,9 +119,9 @@ def read_csv_file(request):
                 # 백엔드와 타입을 맞추기 위해 변환(24.05.08) > (str, int) ==> (str, str)
                 for i, (word, count) in enumerate(keyword_data):
                     if word[1] == 'noun':
-                        keyword_data[i] = (word[0], str(count), 1)
+                        keyword_data[i] = (word[0], str(count), "1")
                     elif word[1] == 'adjective':
-                        keyword_data[i] = (word[0], str(count), 2)
+                        keyword_data[i] = (word[0], str(count), "2")
                 # keyword_data = [(word[0], str(count)) for word, count in keyword_data]
                 print(keyword_data)
                 
@@ -142,9 +142,9 @@ def read_csv_file(request):
                             if keyword == representative_keyword or keyword in keywords:
                                 # 각 인덱스의 값들을 튜플로 변환
                                 if pos == 'noun':
-                                    keyword_data[i] = (representative_keyword, str(representative_count), 1)
+                                    keyword_data[i] = (representative_keyword, str(representative_count), "1")
                                 elif pos == 'adjective':
-                                    keyword_data[i] = (representative_keyword, str(representative_count), 2)
+                                    keyword_data[i] = (representative_keyword, str(representative_count), "2")
 
                     # 중복된 튜플 제거
                     # 집합({})을 사용해서 중복된 데이터(튜플)들을 제거

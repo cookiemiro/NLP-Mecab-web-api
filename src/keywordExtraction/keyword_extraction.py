@@ -86,7 +86,7 @@ def get_pos_list(target_string, tag='noun'):
         words = [(word, 'noun') for (word, pos) in tokenized if is_noun(pos)]
 
     elif tag == 'eng-adjective':
-        is_adjective = is_adjective = lambda pos: pos[:2].startswith('VA')
+        is_adjective = is_adjective = lambda pos: pos[:2].startswith('JJ')
         tokenized = nltk.pos_tag(nltk.word_tokenize(target_string))
         words = [(word, 'adjective') for (word, pos) in tokenized if is_adjective(pos)]
 
