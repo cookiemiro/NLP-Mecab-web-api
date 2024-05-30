@@ -114,7 +114,6 @@ def read_csv_file(request):
                         language = "eng"
                     
                 keyword_data =  run_keyword_extraction_api(str_txt, language=language, max_num_keywords=30, min_length=1 if ignoreOneWord else 0)
-                print('key_data ', keyword_data)
                 
                 # 백엔드와 타입을 맞추기 위해 변환(24.05.08) > (str, int) ==> (str, str)
                 for i, (word, count) in enumerate(keyword_data):
@@ -123,7 +122,6 @@ def read_csv_file(request):
                     elif word[1] == 'adjective':
                         keyword_data[i] = (word[0], str(count), "2")
                 # keyword_data = [(word[0], str(count)) for word, count in keyword_data]
-                print(keyword_data)
                 
                 if dicts:
                     for item in dicts:
