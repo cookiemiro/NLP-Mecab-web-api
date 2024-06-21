@@ -3,6 +3,7 @@ from django.conf import settings
 import src.keywordExtraction.keyword_extraction
 from src.keywordExtraction.keyword_extraction import run_keyword_extraction_api
 import json
+import copy
 from importlib import reload
 import subprocess
 
@@ -49,7 +50,7 @@ def read_csv_file(request):
 
                 for i in range(len(dicts)):
                     dict_item = dicts[i]
-                    representative_keyword = dict_item["representative_keyword"]
+                    representative_keyword = dict_item["representative_keyword"].strip()
                     keywords = dict_item["keywords"]
                  
                     with open(file_path, 'a', encoding='utf-8') as f:
@@ -67,6 +68,7 @@ def read_csv_file(request):
                     
                         for keyword in keywords:   
                             # 파일에 내용 쓰기
+                            keyword = keyword.strip()
                             f.write(f"\n{keyword},,,,NNP,*,T,{keyword},*,*,*,*,*")
 
                 commands = [
@@ -78,7 +80,6 @@ def read_csv_file(request):
             
                 for cmd in commands:
                     run_bash_command(cmd, sudo_password)
-                    # time.sleep(1)
                     
             reload(src.keywordExtraction.keyword_extraction)
             
@@ -114,6 +115,7 @@ def read_csv_file(request):
                         language = "eng"
                     
                 keyword_data =  run_keyword_extraction_api(str_txt, language=language, max_num_keywords=30, min_length=1 if ignoreOneWord else 0)
+                copyed_keyword_data = copy.deepcopy(keyword_data)
                 
                 # 백엔드와 타입을 맞추기 위해 변환(24.05.08) > (str, int) ==> (str, str)
                 for i, (word, count) in enumerate(keyword_data):
@@ -127,16 +129,17 @@ def read_csv_file(request):
                     for item in dicts:
                         representative_keyword = item['representative_keyword']
                         keywords = item['keywords']
+                        keywords = [item.strip() for item in keywords]
                         representative_count = 0
                         
                         # 대표 키워드와 해당하는 키워드들의 빈도수 합산
-                        for i, (keyword, pos, count) in enumerate(keyword_data):
+                        for i, ((keyword, pos), count) in enumerate(copyed_keyword_data):
                             if keyword == representative_keyword or keyword in keywords:
                                 representative_count += int(count)
                         
                         # 키워드 개수를 대표 키워드로 통합
                         # 하위 키워드들을 대표 키워드로 변경
-                        for i, (keyword, pos, count) in enumerate(keyword_data):
+                        for i, ((keyword, pos), count) in enumerate(copyed_keyword_data):
                             if keyword == representative_keyword or keyword in keywords:
                                 # 각 인덱스의 값들을 튜플로 변환
                                 if pos == 'noun':
@@ -144,10 +147,10 @@ def read_csv_file(request):
                                 elif pos == 'adjective':
                                     keyword_data[i] = (representative_keyword, str(representative_count), "2")
 
-                    # 중복된 튜플 제거
-                    # 집합({})을 사용해서 중복된 데이터(튜플)들을 제거
-                    keyword_data = list(set(keyword_data))
-                
+                # 중복된 튜플 제거
+                # 집합({})을 사용해서 중복된 데이터(튜플)들을 제거
+                keyword_data = list(set(keyword_data))
+            
                 if not keyword_data:
                     pass
                 else:
